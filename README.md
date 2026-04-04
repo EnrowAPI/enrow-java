@@ -101,7 +101,7 @@ try {
 } catch (RateLimitException e) {
     // 429
 } catch (InsufficientBalanceException e) {
-    // 402
+    // 422
 } catch (AuthenticationException e) {
     // 401
 } catch (EnrowException e) {

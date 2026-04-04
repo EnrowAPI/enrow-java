@@ -78,7 +78,7 @@ public class HttpClient {
 
         switch (status) {
             case 401: throw new AuthenticationException(message);
-            case 402: throw new InsufficientBalanceException(message);
+            case 422: throw new InsufficientBalanceException(message);
             case 429: throw new RateLimitException(message);
             default: throw new EnrowException(status, error, message);
         }
