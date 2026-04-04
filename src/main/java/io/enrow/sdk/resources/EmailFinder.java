@@ -19,7 +19,7 @@ public class EmailFinder {
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> get(String id) {
-        return http.get("/email/find/single/" + id, Map.class);
+        return http.get("/email/find/single?id=" + id, Map.class);
     }
 
     @SuppressWarnings("unchecked")
@@ -29,6 +29,6 @@ public class EmailFinder {
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> getBulk(String id) {
-        return http.get("/email/find/bulk/" + id, Map.class);
+        return http.get("/email/find/bulk?id=" + id, Map.class);
     }
 }

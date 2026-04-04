@@ -13,21 +13,21 @@ public class EmailVerifier {
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> single(Map<String, Object> params) {
-        return http.post("/verify/single", params, Map.class);
+        return http.post("/email/verify/single", params, Map.class);
     }
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> get(String id) {
-        return http.get("/verify/single/" + id, Map.class);
+        return http.get("/email/verify/single?id=" + id, Map.class);
     }
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> bulk(Map<String, Object> params) {
-        return http.post("/verify/bulk", params, Map.class);
+        return http.post("/email/verify/bulk", params, Map.class);
     }
 
     @SuppressWarnings("unchecked")
     public Map<String, Object> getBulk(String id) {
-        return http.get("/verify/bulk/" + id, Map.class);
+        return http.get("/email/verify/bulk?id=" + id, Map.class);
     }
 }

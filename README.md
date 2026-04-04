@@ -30,8 +30,7 @@ Enrow enrow = new Enrow("your_api_key");
 
 Map<String, Object> result = enrow.email.find(Map.of(
     "company_domain", "apple.com",
-    "first_name", "Tim",
-    "last_name", "Cook"
+    "fullname", "Tim Cook"
 ));
 
 System.out.println(result.get("email")); // tcook@apple.com
@@ -43,8 +42,7 @@ System.out.println(result.get("email")); // tcook@apple.com
 // Find a single email
 Map<String, Object> search = enrow.email.find(Map.of(
     "company_domain", "apple.com",
-    "first_name", "Tim",
-    "last_name", "Cook"
+    "fullname", "Tim Cook"
 ));
 
 // Get by ID
@@ -53,8 +51,8 @@ Map<String, Object> result = enrow.email.get("search_abc123");
 // Bulk
 Map<String, Object> batch = enrow.email.findBulk(Map.of(
     "searches", List.of(
-        Map.of("company_domain", "apple.com", "first_name", "Tim", "last_name", "Cook"),
-        Map.of("company_domain", "microsoft.com", "first_name", "Satya", "last_name", "Nadella")
+        Map.of("company_domain", "apple.com", "fullname", "Tim Cook"),
+        Map.of("company_domain", "microsoft.com", "fullname", "Satya Nadella")
     )
 ));
 Map<String, Object> results = enrow.email.getBulk((String) batch.get("batch_id"));
