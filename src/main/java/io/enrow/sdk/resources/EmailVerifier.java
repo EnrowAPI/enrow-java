@@ -1,0 +1,33 @@
+package io.enrow.sdk.resources;
+
+import io.enrow.sdk.HttpClient;
+import java.util.Map;
+
+public class EmailVerifier {
+
+    private final HttpClient http;
+
+    public EmailVerifier(HttpClient http) {
+        this.http = http;
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> single(Map<String, Object> params) {
+        return http.post("/verify/single", params, Map.class);
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> get(String id) {
+        return http.get("/verify/single/" + id, Map.class);
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> bulk(Map<String, Object> params) {
+        return http.post("/verify/bulk", params, Map.class);
+    }
+
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> getBulk(String id) {
+        return http.get("/verify/bulk/" + id, Map.class);
+    }
+}
