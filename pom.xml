@@ -11,7 +11,7 @@
 
     <name>Enrow Java SDK</name>
     <description>Official Java SDK for the Enrow API — find and verify professional emails and phone numbers</description>
-    <url>https://github.com/enrow/enrow-java</url>
+    <url>https://github.com/EnrowAPI/enrow-java</url>
 
     <licenses>
         <license>
