@@ -81,13 +81,6 @@ Map<String, Object> phone = enrow.phone.find(Map.of(
 Map<String, Object> result = enrow.phone.get("phone_abc123");
 ```
 
-## Reverse Email
-
-```java
-Map<String, Object> person = enrow.reverseEmail.find(Map.of("email", "tcook@apple.com"));
-System.out.println(person.get("first_name")); // "Tim"
-```
-
 ## Account
 
 ```java
@@ -120,7 +113,6 @@ try {
 | Email Finder | 1 credit/email |
 | Email Verifier | 0.25 credit/email |
 | Phone Finder | 50 credits/phone |
-| Reverse Email | 5 credits/lookup |
 
 ## Links
 
