@@ -69,7 +69,15 @@ public class HttpClient {
         String error;
         try {
             JsonObject body = gson.fromJson(response.body(), JsonObject.class);
-            message = body.has("message") ? body.get("message").getAsString() : "Unknown error";
+            // Errors carry "message", except a 402 on a single endpoint,
+            // which answers {"reason": "...", "success": false}.
+            if (body.has("message")) {
+                message = body.get("message").getAsString();
+            } else if (body.has("reason")) {
+                message = body.get("reason").getAsString();
+            } else {
+                message = "Unknown error";
+            }
             error = body.has("error") ? body.get("error").getAsString() : "UnknownError";
         } catch (Exception e) {
             message = response.body();
@@ -77,8 +85,10 @@ public class HttpClient {
         }
 
         switch (status) {
-            case 401: throw new AuthenticationException(message);
-            case 422: throw new InsufficientBalanceException(message);
+            // 403: the API gateway refuses the key on GET /email/find/single.
+            case 401:
+            case 403: throw new AuthenticationException(status, message);
+            case 402: throw new InsufficientBalanceException(message);
             case 429: throw new RateLimitException(message);
             default: throw new EnrowException(status, error, message);
         }

@@ -7,7 +7,6 @@ public class Enrow {
     public final EmailFinder email;
     public final EmailVerifier verify;
     public final PhoneFinder phone;
-    public final ReverseEmail reverseEmail;
     public final Account account;
 
     public Enrow(String apiKey) {
@@ -19,7 +18,6 @@ public class Enrow {
         this.email = new EmailFinder(http);
         this.verify = new EmailVerifier(http);
         this.phone = new PhoneFinder(http);
-        this.reverseEmail = new ReverseEmail(http);
         this.account = new Account(http);
     }
 }
